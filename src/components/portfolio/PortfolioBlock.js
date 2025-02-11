@@ -8,7 +8,7 @@ function PortfolioBlock(props) {
      live, 
      source, 
      title, 
-     description, 
+      
      onViewProject, // Opens image gallery
      onViewDescription // Opens description modal
    } = props;

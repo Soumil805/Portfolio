@@ -123,7 +123,7 @@ export default function Portfolio({ innerRef }) {
                         }}>
                             <img
                                 src={selectedProject.additionalImages[currentImageIndex]}
-                                alt={`Project image ${currentImageIndex + 1}`}
+                                alt={`project`}
                                 style={{
                                     maxWidth: '100%',
                                     maxHeight: '100%',
