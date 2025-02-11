@@ -3,6 +3,7 @@ import Style from './About.module.scss';
 import Terminal from "./Terminal";
 import {Box} from "@mui/material";
 import {info} from "../../info/Info";
+import TextSphere from './TextSphere/TextSphere';
 
 
 export default function About({innerRef}) {
@@ -26,9 +27,7 @@ export default function About({innerRef}) {
             <p><span style={{color: info.baseColor}}>skills/tools <span
                 className={Style.green}>(main)</span> $</span> ls</p>
             <p style={{color: info.baseColor}}> Proficient With</p>
-            <ul className={Style.skills}>
-                {info.skills.proficientWith.map((proficiency, index) => <li key={index}>{proficiency}</li>)}
-            </ul>
+            <TextSphere />
             <p style={{color: info.baseColor}}> Exposed To</p>
             <ul className={Style.skills}>
                 {info.skills.exposedTo.map((skill, index) => <li key={index}>{skill}</li>)}
@@ -51,10 +50,14 @@ export default function About({innerRef}) {
     }
 
     return (
+        
         <Box ref={innerRef} display={'flex'} flexDirection={'column'} alignItems={'center'} mt={'3rem'} id={'about'}>
             <Terminal text={aboutMeText()}/>
+            
             <Terminal text={skillsText()}/>
             <Terminal text={miscText()}/>
+            
         </Box>
+        
     )
 }
