@@ -13,6 +13,13 @@ import Blog1 from "../img/BlogApi/Img1.png"
 import Blog2 from "../img/BlogApi/Img2.png"
 import Blog3 from "../img/BlogApi/Img3.png"
 import Blog4 from "../img/BlogApi/Img4.png"
+import BrewMaster from "../img/BrewMasters.png"
+import sitesquare from "../img/SiteSquare.png"
+import indrani from "../img/IndraniThreads.png"
+import Bakeshop from "../img/The Bake shop.png"
+import regal from "../img/RegalResidencies.png"
+import porcelain from "../img/PorcelainPerks.png"
+import ToyWorld from "../img/ToyWorld.png"
 
 
 export let colors = [" rgb(66, 66, 67), rgb(194, 192, 196)"];
@@ -138,6 +145,52 @@ export const info = {
             source: "https://github.com/Soumil805/Simon-Game",
             image: SimonGame
         },
+        
+    ],
+    // New array for UI/UX lowcode projects
+    lowcodeProjects: [
+        {
+            title: "SiteSquare Designs",
+            description: "A intuitive website with many intricate components and pages",
+            image: sitesquare, 
+            live: "https://www.sitesquaredesigns.com/"
+        },
+        {
+            title: "The Bake Shop",
+            description: " The Website showcases the bakery's mission to deliver doughy perfection, combining traditional baking techniques with modern precision. And uses CMS for easy content updates.",
+            image: Bakeshop,  
+            live: "https://sitesquarein.wixsite.com/my-site-4"
+        },
+        {
+            title: "Indrani Threads",
+            description: "A Traditional wear shop website where the layout is clean and organized, with clear sections for men’s and women’s collections. The 'Shop All' and 'View Details' buttons make it easy for visitors to explore and find products effortlessly.",
+            image: indrani, 
+            live: "https://sitesquarein.wixsite.com/indrani-threads-1"
+        },
+        {
+            title: "BrewMasters",
+            description: "Cafe/Coffee shop website where layout is intuitive, with clearly labeled sections for easy navigation. Information about the products, origins, and testimonials is easily accessible, ensuring a seamless browsing experience.",
+            image: BrewMaster, 
+            live: "https://sitesquares-sample-site-552c10.webflow.io/"
+        },
+        {
+            title: "Regal Residencies",
+            description: 'The website utilizes a clean and modern color scheme with a primary focus on white, complemented by light grey and black accents. Interactive elements such as the project carousel with clickable arrows and play buttons encourage user engagement.'  ,
+            image: regal, 
+            live: "https://sitesquares-stellar-site.webflow.io/"
+        },
+        {
+            title: "Porcelain Perks",
+            description:"An ecommerce website where product names and prices are clearly displayed, making the shopping experience straightforward. The organized layout helps users easily find featured and new products.", 
+            image: porcelain, 
+            live: "https://sitesquares-sample-site-714929.webflow.io/"
+        },
+        {
+            title: "ToyWorld",
+            description: "Toy Website with sections for discovering toys, joining events, and sharing stories foster community interaction and engagement and the Instagram feed integration showcases the latest toys and customer interactions, enhancing social proof and engagement.",
+            image: ToyWorld, 
+            live: "https://sitesquares-toy-site.webflow.io/"
+        }
         
     ]
 }

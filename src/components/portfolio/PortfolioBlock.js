@@ -8,9 +8,9 @@ function PortfolioBlock(props) {
      live, 
      source, 
      title, 
-      
      onViewProject, // Opens image gallery
-     onViewDescription // Opens description modal
+     onViewDescription, // Opens description modal
+     isLowcode = false // New prop to indicate if this is a lowcode project
    } = props;
    
    return (
@@ -161,22 +161,24 @@ function PortfolioBlock(props) {
             </Box>
           )}
           
-          {/* Source Code Button */}
-          <Box 
-            p={1.5} 
-            border={'2px solid black'} 
-            borderRadius={'25px'}
-            sx={{
-              transition: 'all 0.2s ease-in-out',
-              '&:hover': {
-                backgroundColor: 'black',
-                color: 'white',
-                transform: 'translateY(-2px)'
-              }
-            }}
-          >
-            <IconLink link={source} title={'Source Code'} icon={'fa fa-code'}/>
-          </Box>
+          {/* Source Code Button - Only show for coding projects */}
+          {source && !isLowcode && (
+            <Box 
+              p={1.5} 
+              border={'2px solid black'} 
+              borderRadius={'25px'}
+              sx={{
+                transition: 'all 0.2s ease-in-out',
+                '&:hover': {
+                  backgroundColor: 'black',
+                  color: 'white',
+                  transform: 'translateY(-2px)'
+                }
+              }}
+            >
+              <IconLink link={source} title={'Source Code'} icon={'fa fa-code'}/>
+            </Box>
+          )}
         </Box>
       </Box>
    );

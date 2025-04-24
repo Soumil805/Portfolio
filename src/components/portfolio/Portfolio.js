@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PortfolioBlock from "./PortfolioBlock";
-import { Box, Grid, Dialog, IconButton, Typography } from "@mui/material";
+import { Box, Grid, Dialog, IconButton, Typography, Tabs, Tab } from "@mui/material";
 import { info } from "../../info/Info";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -10,6 +10,9 @@ export default function Portfolio({ innerRef }) {
     const [showingGallery, setShowingGallery] = useState(false);
     const [showingDescription, setShowingDescription] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
+    // State for tab selection
+    const [tabValue, setTabValue] = useState(0);
 
     // Handler functions
     const handleViewGallery = (project) => {
@@ -42,20 +45,57 @@ export default function Portfolio({ innerRef }) {
         );
     };
 
+    const handleTabChange = (event, newValue) => {
+        setTabValue(newValue);
+    };
+
+    // Get the projects based on the selected tab
+    const projectsToShow = tabValue === 0 ? info.portfolio : info.lowcodeProjects || [];
+
     return (
         <Box id={'portfolio'} ref={innerRef}>
+            {/* Project Type Tabs */}
+            <Box 
+                sx={{ 
+                    width: '100%', 
+                    display: 'flex', 
+                    justifyContent: 'center',
+                    mb: 4, 
+                    py: 4,
+                }}
+            >
+                <Tabs 
+                    value={tabValue} 
+                    onChange={handleTabChange}
+                    indicatorColor="primary"
+                    textColor= "White"
+                    centered
+                    sx={{
+                        '& .MuiTab-root': { 
+                            fontSize: '1.3rem',
+                            fontWeight: 600,
+                            px: 4,
+                        }
+                    }}
+                >
+                    <Tab label="Coding Projects" />
+                    <Tab label="UI/UX Lowcode Projects" />
+                </Tabs>
+            </Box>
+
             {/* Project Grid */}
             <Grid container display={'flex'} justifyContent={'center'}>
-                {info.portfolio.map((project, index) => (
+                {projectsToShow.map((project, index) => (
                     <Grid item xs={12} md={6} key={index}>
                         <PortfolioBlock 
                             image={project.image} 
                             live={project.live} 
-                            source={project.source} 
+                            source={tabValue === 0 ? project.source : null} // Only show source for coding projects
                             title={project.title}
                             description={project.description}
                             onViewProject={() => handleViewGallery(project)}
                             onViewDescription={() => handleViewDescription(project)}
+                            isLowcode={tabValue === 1} // Pass flag to indicate lowcode project
                         />
                     </Grid>
                 ))}
